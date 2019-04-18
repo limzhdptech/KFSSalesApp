@@ -18,7 +18,7 @@ namespace QHSalesApp
                 BufferedReader inReader = null;
                 BufferedWriter outReader = null;
                 BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
-                if (adapter.BondedDevices.Count == 0)
+                if (adapter.BondedDevices.Count == 0) // update by Zhi Hong Lim
                 {
                     throw new System.Exception("Bluetooth is not turned on.");
                 }
