@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.FileUploadPage">
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Upload" Clicked="OnUpload"></ToolbarItem>
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                   
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="90" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Image x:Name="image" Source="noimg.jpeg" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="30,0,30,0" />
+                <Button x:Name="TakePhotoButton" Grid.Row="1" Grid.Column="0" Image="camera.png" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" 
+                        BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="30,0,15,30" 
+                    Clicked="TakePhotoButton_Clicked"></Button>
+                <Button x:Name="PickPhotoButton" Grid.Row="1" Grid.Column="1"  Image="folder.png" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" 
+                        BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="15,0,30,30" 
+                    Clicked="PickPhotoButton_Clicked"></Button>
+            </Grid>
+            <ProgressBar x:Name="progress" Progress="0.0" IsVisible="False" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

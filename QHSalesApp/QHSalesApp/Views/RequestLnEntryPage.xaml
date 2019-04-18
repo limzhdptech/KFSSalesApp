@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QHSalesApp"
+             xmlns:behaviors="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.RequestLnEntryPage">
+    <ContentPage.Content>
+      <AbsoluteLayout>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+          <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>
+              <!--<RowDefinition Height="auto"/>
+              <RowDefinition Height="auto"/>-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="3*"/>
+              <ColumnDefinition Width="2*"/>
+              <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <!--<Label x:Name="DocumentNoLabel" Text="Document No." Grid.Row="0" FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                <local:MyEntry  x:Name="DocumentNoEntry"  Grid.Row="1" Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsVisible="True" IsEnabled="False"/>-->
+            <local:SelectAllEntry  x:Name="BarCodeEntry" Grid.Row="0" Grid.ColumnSpan="3"  Placeholder="Enter Barcode"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="True"/>
+            <Label Text="Item No." Grid.Row="1" Grid.Column="0" FontSize="16"  TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" IsVisible="True" >
+              <Label x:Name="ItemNoLabel"  Text="Select Item No"  FontSize="16"  TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+              <local:ActionButton x:Name="ItemNolookUpButton" CommandParameter="9" HeightRequest="40" WidthRequest="40" HorizontalOptions="End" VerticalOptions="End" />
+            </StackLayout>
+            <Label x:Name="DescLabel" Text="Description" Grid.Row="2" Grid.ColumnSpan="3" FontSize="16"   TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" >
+              <!--<local:SelectAllEntry  x:Name="DescEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="False"/>-->
+              <Label x:Name="DescEntry"  Text="Select Item No"  FontSize="16" FontAttributes="Bold"  TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+            <!--<Label x:Name="VendorLabel" Text="Vendor No" Grid.Row="4" Grid.ColumnSpan="2" FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" >
+              <local:SelectAllEntry  x:Name="VendorEntry"  Placeholder="Enter Vendor" Keyboard="Numeric"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="True"/>
+              <local:ActionButton x:Name="VendorlookUpButton" CommandParameter="9" HeightRequest="40" WidthRequest="40" HorizontalOptions="End" VerticalOptions="End" />
+            </StackLayout>-->
+            <Label x:Name="QtyperBagLabel" Text="Quantity" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16"  TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalOptions="FillAndExpand" >
+              <local:SelectAllEntry  x:Name="QtyEntry"  Placeholder="Enter Quantity" Keyboard="Telephone"  FontSize="16" FontAttributes="Bold" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand"  
+               HorizontalTextAlignment="Center" Margin="0,0,20,0">
+                <Entry.Behaviors>
+                  <local:NumericValidationBehavior />
+                  <behaviors:EntryLengthValidatorBehavior MaxLength="5"/>
+                </Entry.Behaviors>
+              </local:SelectAllEntry>
+            </StackLayout>
+            <Label x:Name="UomLabel"  Text="UOM" Grid.Row="4" Grid.Column="2" FontSize="16"   TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="5" Grid.Column="2"  HorizontalOptions="FillAndExpand" IsVisible="True" >
+              <local:SelectAllEntry  x:Name="UomEntry"  Placeholder="Item UOM"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="False"/>
+            </StackLayout>
+            <!--<Label x:Name="NoofBagsLabel" Text="No of Bags" Grid.Row="8" Grid.Column="0" FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="9" Grid.Column="0" HorizontalOptions="FillAndExpand" IsVisible="True" >
+              <local:SelectAllEntry  x:Name="NoofBagsEntry"  Placeholder="Enter Unit Price" Keyboard="Numeric"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalTextAlignment="Center"  HorizontalOptions="FillAndExpand" IsEnabled="True" Margin="0,0,20,0"/>
+            </StackLayout>-->
+            <!--<Label x:Name="totalLabel" Text="Quantity" Grid.Row="8" Grid.Column="0" FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="9" Grid.Column="0" HorizontalOptions="FillAndExpand" IsVisible="True" >
+              <Label x:Name="QuantityLabel" Text="0.00" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,0,10,0"/>
+            </StackLayout>-->
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Grid.Row="10" Grid.ColumnSpan="3">
+              <Button x:Name="saveButton" Image="save.png"  TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="50" BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="0,20,10,20"/>
+              <Button x:Name="DeleteButton" Image="garbage.png" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="50" BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="10,20,0,20"/>
+            </StackLayout>
+          </Grid>
+      
+        </StackLayout>
+      </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

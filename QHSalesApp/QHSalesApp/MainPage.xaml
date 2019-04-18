@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.MainPage"
+             xmlns:local="clr-namespace:QHSalesApp"
+             xmlns:pages="clr-namespace:QHSalesApp">
+  <MasterDetailPage.Master>
+        <ContentPage Title="Menu" BackgroundColor="Black">
+            <StackLayout Orientation="Vertical">
+                <!-- 
+             This StackLayout you can use for other
+             data that you want to have in your menu drawer
+        -->
+                <StackLayout 
+                     HeightRequest="50">
+                    <Label Text="KFS Mobile Sales" FontSize="20" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                 TextColor="White" HorizontalOptions="Center"/>
+                </StackLayout>
+                <ListView x:Name="navigationDrawerList"
+                  RowHeight="60"
+                  SeparatorVisibility="None"
+                  ItemSelected="OnMenuItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <!-- Main design for our menu items -->
+                                <StackLayout VerticalOptions="FillAndExpand"
+                                 Orientation="Horizontal"
+                                 Padding="20,10,0,10"
+                                 Spacing="10">
+                                    <Image Source="{Binding IconSource}"
+                                     WidthRequest="32"
+                                     HeightRequest="32"
+                                     VerticalOptions="Center" />
+                                    <Label Text="{Binding Title}"
+                                     FontSize="Medium"
+                                     FontAttributes="Bold"
+                                     VerticalOptions="Center"
+                                     TextColor="White"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+        <NavigationPage/>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

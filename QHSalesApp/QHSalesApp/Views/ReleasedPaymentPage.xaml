@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.ReleasedPaymentPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20" >
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="120" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="6*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Document No : "  Grid.Row="0" Grid.Column="0" FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                    <Label  x:Name="DocumentNoLabel" Grid.Column="1" Grid.Row="0"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand"/>
+
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="1" Grid.ColumnSpan="2"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    
+                    <Label Text="Reference No : "  Grid.Row="2" Grid.Column="0" FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                    <Label  x:Name="RefDocumentNoLabel" Grid.Column="1" Grid.Row="2"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand"/>
+
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="3" Grid.ColumnSpan="2"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Payment Date : "  Grid.Row="4" Grid.Column="0" FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                    <Label  x:Name="PaymentDateLabel" Grid.Column="1" Grid.Row="4"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand"/>
+                    
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="5" Grid.ColumnSpan="2"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    
+                    <StackLayout Grid.Row="6" Grid.ColumnSpan="2"  HorizontalOptions="FillAndExpand">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="6*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Payment by : "  Grid.Row="0" Grid.Column="0" FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                            <Label  x:Name="PaymentMethodLabel" Grid.Column="1" Grid.Row="0"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand"/>
+                            <Label  x:Name="ImageLinkLabel" Text="Click to open attached image" Grid.ColumnSpan="2" Grid.Row="1"  FontSize="16" TextColor="Green"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </StackLayout>
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="7" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout Orientation="Vertical" Grid.Row="8" Grid.ColumnSpan="2" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="25" />
+                            </Grid.RowDefinitions>
+                            <Label  Text="Customer Info"  Grid.Row="0"   FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand"/>
+                            <Label  x:Name="CustomerNoLabel"  Grid.Row="1"  FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" Margin="20,0,0,0"/>
+                            <Label x:Name="CustomerNameLabel" Grid.Row="2"  FontSize="14" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="20,0,0,0"/>
+                        </Grid>
+
+                    </StackLayout>
+                    
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="9" Grid.ColumnSpan="2"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <Label  Text="AMOUNT : " Grid.Row="10" Grid.Column="0" FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand"  Margin="10,0,0,0"/>
+                    <Label x:Name="AmountLabel" Grid.Row="10" Grid.Column="1" FontSize="18" FontAttributes="Bold"  TextColor="Black"
+                           VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="11" Grid.ColumnSpan="2"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                    <Label Text="Note : "  Grid.Row="12" Grid.Column="0" FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                    <Label  x:Name="NoteLabel" Grid.Column="1" Grid.Row="12"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand"/>
+
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="13" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <Image x:Name="imgSignature" Grid.Row="14" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                    <Button x:Name="PrintButton"  Text="Print"  Grid.Row="15" Grid.ColumnSpan="2" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" 
+                        BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"  Margin="10,30,10,10" Clicked="PrintButton_Clicked" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

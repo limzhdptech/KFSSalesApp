@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.LoadQtyEntryPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="75"/> <!-- 4 -->
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Item No." Grid.Row="0" Grid.ColumnSpan="2" FontSize="16" TextColor="Gray" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="ItemNoLabel"  Text="Item No." Grid.Row="1" Grid.ColumnSpan="2" FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                <Label  Text="Description" Grid.Row="2" Grid.ColumnSpan="2" FontSize="16"   TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="DescLabel" Text="Description" Grid.Row="3" Grid.ColumnSpan="2"  FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <BoxView   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                        <BoxView   Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                        <BoxView   Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+
+                        <BoxView   Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+                        <BoxView   Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+                        <BoxView   Grid.Row="0" Grid.Column="4" Grid.RowSpan="5" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+                        <BoxView   Grid.Row="0" Grid.Column="6" Grid.RowSpan="5" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+
+                        <Label Text="Qty per Bag" Grid.Row="1" Grid.Column="1"  FontSize="16" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Gray"/>
+                        <Label Text="Bags"  Grid.Row="1" Grid.Column="3" FontSize="16" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Gray"/>
+                        <Label Text="Quantity"  Grid.Row="1" Grid.Column="5" FontSize="16" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Gray"/>
+
+                        <Label x:Name="QtyperBagLabel" Text="{Binding QtyPerBag}" Grid.Row="3" Grid.Column="1" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label x:Name="NoofBagsLabel" Text="{Binding NoofBags}" Grid.Row="3" Grid.Column="3" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label x:Name="ReqQtyLabel" Text="{Binding Quantity}" Grid.Row="3" Grid.Column="5" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                    </Grid>
+                </StackLayout>
+                <Label  Text="Pick Quantity" Grid.Row="5" Grid.Column="0"  FontSize="16" TextColor="Gray" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="PickQtyLabel"  Grid.Row="6" Grid.Column="0"  FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+
+                <Label Text="Load Quantity" Grid.Row="5" Grid.Column="1"  FontSize="16" TextColor="Gray" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="0,0,10,0"/>
+                <local:SelectAllEntry  x:Name="LoadQtyEntry" Grid.Row="6" Grid.Column="1"  Placeholder="Enter Load Quantity" Keyboard="Telephone"  FontSize="18" FontAttributes="Bold" TextColor="Black" 
+                PlaceholderColor="Gray" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center">
+                  <Entry.Behaviors>
+                    <local:NumericValidationBehavior />
+                  </Entry.Behaviors>
+                </local:SelectAllEntry>
+            </Grid>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Button x:Name="saveButton" Text="Save" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

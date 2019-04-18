@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QHSalesApp;assembly=QHSalesApp"
+             x:Class="QHSalesApp.AdminLoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#3ec3d5</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Grid BackgroundColor="#dddddd" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Enter admin Password to reset data: " Grid.Row="1"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="30,0,0,0"/>
+                    <StackLayout Grid.Row="2" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="30,0,30,0">
+                        <local:ImageEntry x:Name="PasswordEntry" Text="{Binding Path=Password}" IsPassword="True" Image="lock" Placeholder="Enter Password" FontSize="16" TextColor="Black" PlaceholderColor="Gray"  HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <Button x:Name="LoginButton" Grid.Row="3" Text="Login" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="#EC2029"  VerticalOptions="Center" Margin="30,30,30,0" BorderColor="#EC2029"/>
+                </Grid>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.UnloadLinePage">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converter:DecimalConverter x:Key="decConverter"></converter:DecimalConverter>
+      <converter:NullboolConverter x:Key="nullConverter"></converter:NullboolConverter>
+      <converter:ColorConverter x:Key="colorConverter"></converter:ColorConverter>
+      <converter:VisibleConverter x:Key="cnvInvert"></converter:VisibleConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <AbsoluteLayout>
+      <StackLayout x:Name="Emptylayout"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+        <Image Source="norec.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+      </StackLayout>
+      <StackLayout x:Name="Datalayout" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="100"/>-->
+          </Grid.RowDefinitions>
+          <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <ListView x:Name="listview" HasUnevenRows="True" RowHeight="60">
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                      <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <Grid.RowDefinitions>
+                          <RowDefinition Height="auto"/>
+                          <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="3*"/>
+                          <ColumnDefinition Width="7*"/>
+                          <!--<ColumnDefinition Width="16"/>-->
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding ItemNo}" Grid.Row="0"  Grid.Column="0"  FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding ItemDesc}" Grid.Row="0" Grid.Column="1"  FontSize="16" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontAttributes="Bold"  TextColor="Black"/>
+                        <StackLayout Grid.Row="2"  Grid.ColumnSpan="2"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                          <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                              <RowDefinition Height="auto"/>
+                              <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                              <!--<ColumnDefinition Width="*"/>-->
+                              <ColumnDefinition Width="5*"/>
+                              <ColumnDefinition Width="5*"/>
+                              <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <!--<Label Text="Unloaded" Grid.Row="0" Grid.Column="0"  FontSize="14"   VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Gray"/>
+                              <Label Text="{Binding Quantity}" Grid.Row="1" Grid.Column="0" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>-->
+                            <Label Text="Good" Grid.Row="0" Grid.Column="0"  FontSize="14"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Gray"/>
+                              <Label Text="{Binding GoodQty}" Grid.Row="1" Grid.Column="0" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                            <Label Text="Bad" Grid.Row="0" Grid.Column="1"  FontSize="14"   VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Gray"/>
+                              <Label Text="{Binding BadQty}" Grid.Row="1" Grid.Column="1" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                            <Label Text="UOM" Grid.Row="0" Grid.Column="2"  FontSize="14"   VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Gray"/>
+                            <Label Text="{Binding ItemUom}" Grid.Row="1" Grid.Column="2" FontSize="16"   VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                              </Grid>
+                        </StackLayout>
+                      </Grid>
+                    </StackLayout>
+                  </ViewCell>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+      <!--<local:ActionButton x:Name="AddButton"  ButtonIcon="{x:Static local:AwasomeIcon.FAPlus}" ButtonColor="#22C242" OnTouchesEnded="AddButton_OnTouchesEnded"
+                                  AbsoluteLayout.LayoutBounds="1,1,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"
+                          HeightRequest="60" WidthRequest="60" HorizontalOptions="End" VerticalOptions="End" Padding="10" />-->
+    </AbsoluteLayout>
+  </ContentPage.Content>
+</ContentPage>

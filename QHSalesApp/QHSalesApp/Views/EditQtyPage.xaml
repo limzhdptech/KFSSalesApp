@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.EditQtyPage">
+  <pages:PopupPage.Animation>
+    <animations:ScaleAnimation
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+  </pages:PopupPage.Animation>
+  <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20, 20, 20, 20">
+    <StackLayout BackgroundColor="White" Padding="0, 20, 0, 0">
+      <!--<Label Text="Choose Scan" TextColor="Gray" FontSize="18" HorizontalOptions="Center"></Label>-->
+      <ScrollView>
+          <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+             <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="4*"/>
+                  <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="QuantityLabel" Text="Quantity:" Grid.Row="1" Grid.Column="0"  FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Margin="20,0,20,20"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1"   HorizontalOptions="FillAndExpand" >
+                    <local:SelectAllEntry  x:Name="QuantityEntry"  Placeholder="Enter Quantity" Keyboard="Numeric"  FontSize="16" FontAttributes="Bold" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" Margin="20,0,20,20"/>
+                </StackLayout>
+            <Button x:Name="UpdateButton" Grid.Row="2" Grid.ColumnSpan="2" Text="Update" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="50" BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="20,0,20,20" Clicked="UpdateButtonOnClicked"/>
+          <Button x:Name="CloseButton" Grid.Row="3" Grid.ColumnSpan="2" Text="Close" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="50" BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="20,0,20,20" Clicked="OnClose"/>
+          </Grid>
+      </ScrollView>
+    </StackLayout>
+  </StackLayout>
+</pages:PopupPage>

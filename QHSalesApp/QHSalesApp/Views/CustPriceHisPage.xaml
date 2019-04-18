@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp;assembly=QHSalesApp"
+             x:Class="QHSalesApp.CustPriceHisPage">
+    <ContentPage.Content>
+        <!--<AbsoluteLayout>-->
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <!--<ScrollView>-->
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                      <BoxView BackgroundColor="Black" Grid.ColumnSpan="2" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                      <StackLayout Grid.ColumnSpan="2" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                          </Grid.ColumnDefinitions>
+                          <Image Source="previous.png" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image.GestureRecognizers>
+                              <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5"  NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                          </Image>
+                          <Label x:Name="TitleLabel" Grid.Column="1"  FontSize="20" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                          TextColor="White" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                        </Grid>
+                      </StackLayout>
+                        <StackLayout x:Name="DataLayout" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                            <ScrollView>
+                                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Customer No. :" Grid.Row="0"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                                    <Label  x:Name="CustNoLabel" Grid.Row="1"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+
+                                    <Label Text="Customer Name :" Grid.Row="2"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                                    <Label  x:Name="CustNameLabel" Grid.Row="3"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+
+                                    <Label Text="Item No. :" Grid.Row="4"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                                    <Label  x:Name="ItemNoLabel" Grid.Row="5"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+
+                                    <Label Text="Item Desc :" Grid.Row="6"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                                    <Label  x:Name="ItemDescLabel" Grid.Row="7"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+
+                                    <BoxView BackgroundColor="DarkGray" Grid.Row="8" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                                    <StackLayout Grid.Row="9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1"/>
+                                                <ColumnDefinition Width="4*"/>
+                                                <ColumnDefinition Width="1"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="1"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="1"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1" />
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="1" />
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="1" />
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="1" />
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="1" />
+                                            </Grid.RowDefinitions>
+                                            <BoxView   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                                            <BoxView   Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                                            <BoxView   Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                                            <BoxView   Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                                            <BoxView   Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="7" Color="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+
+                                            <BoxView   Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+                                            <BoxView   Grid.Row="0" Grid.Column="2" Grid.RowSpan="9" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+                                            <BoxView   Grid.Row="0" Grid.Column="4" Grid.RowSpan="9" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+                                            <BoxView   Grid.Row="0" Grid.Column="6" Grid.RowSpan="9" Color="Silver" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+
+
+                                            <!--<BoxView BackgroundColor="#dddddd" Grid.Column="1" Grid.Row="0" Color="Silver"/>
+                                        <BoxView BackgroundColor="#dddddd" Grid.Column="2" Grid.Row="0" Color="Silver"/>-->
+                                            <Label Text="Date" Grid.Row="1" Grid.Column="1"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                                            <Label Text="Price" Grid.Row="1" Grid.Column="3"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="0,0,0,10"/>
+                                            <Label Text="Quantity" Grid.Row="1" Grid.Column="5"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="0,0,0,10"/>
+
+                                            <Label x:Name="TranDateLabel"   Grid.Row="3" Grid.Column="1"  FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                                            <Label x:Name="PriceLabel"   Grid.Row="3" Grid.Column="3"  FontSize="16"   VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="EndAndExpand" Margin="0,0,0,10"/>
+                                            <Label x:Name="qtyLabel"   Grid.Row="3" Grid.Column="5"  FontSize="16"  TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" Margin="0,0,0,10"/>
+
+                                            <Label x:Name="TranDate2Label"   Grid.Row="5" Grid.Column="1" FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                                            <Label x:Name="Price2Label"   Grid.Row="5" Grid.Column="3" FontSize="16"   VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="EndAndExpand" Margin="0,0,0,10"/>
+                                            <Label x:Name="qty2Label"   Grid.Row="5" Grid.Column="5" FontSize="16"  TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" Margin="0,0,0,10"/>
+
+                                            <Label x:Name="TranDate3Label"   Grid.Row="7" Grid.Column="1" FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                                            <Label x:Name="Price3Label"  Grid.Row="7" Grid.Column="3" FontSize="16"   VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="EndAndExpand" Margin="0,0,0,10"/>
+                                            <Label x:Name="qty3Label"   Grid.Row="7" Grid.Column="5" FontSize="16"  TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" Margin="0,0,0,10"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Grid>
+                            </ScrollView>
+                        </StackLayout>
+                        <BoxView BackgroundColor="#dddddd" Grid.Column="0" Grid.Row="2">
+                            <BoxView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1"/>
+                            </BoxView.GestureRecognizers>
+                        </BoxView>
+                        <Image Source="detail.png" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" IsEnabled="False">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <BoxView BackgroundColor="Silver" Grid.Column="1" Grid.Row="2"/>
+                        <Image Source="history2.png" Grid.Column="1" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                <!--</ScrollView>-->
+            </StackLayout>
+            <!--<StackLayout IsVisible="{Binding IsLoading}" Padding="12" AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <ActivityIndicator x:Name="actInd" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" Color="Red" Opacity="0.5"/>
+                <Label Text="Loading..." HorizontalOptions="Center" FontAttributes="Bold" TextColor="DarkGray"/>
+            </StackLayout>-->
+        <!--</AbsoluteLayout>-->
+    </ContentPage.Content>
+</ContentPage>

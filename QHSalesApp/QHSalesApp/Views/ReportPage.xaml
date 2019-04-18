@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.ReportPage">
+  <ContentPage.Content>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+      <Button x:Name="ActivityButton"  Text="Print Activity Report" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60"
+                  BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="30,30,30,15" Clicked="ActivityButton_Clicked" />
+      <Button x:Name="DailySalesInvButton"  Text="Print Daily Sales Invoice Summary Report" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60"
+                 BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="30,30,30,15" Clicked="DailySalesInvButton_Clicked" />
+      <Button x:Name="VoidReportButton"  Text="Print Void Report" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60"
+                 BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="30,30,30,15" Clicked="VoidReportButton_Clicked" />
+      <Button x:Name="DailySalesReturnButton"  Text="Print Daily Sales Return Summary Report" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60"
+                 BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="30,30,30,15" Clicked="DailySalesReturnButton_Clicked" />
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

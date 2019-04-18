@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.CustomerTabbedPage">
+    <!--<local:CustDetailPage Icon="info.png" Title="abc"/>
+    <local:CustBillToPage Icon="billto.png" Title="def"/>
+    <local:CustFinancePage Icon="finance.png" Title="ddd"/>-->
+    
+    <local:CustDetailPage />
+    <NavigationPage Title="Bill To" Icon="billto.png">
+        <x:Arguments>
+            <local:CustBillToPage />
+        </x:Arguments>
+    </NavigationPage>
+    <local:CustFinancePage />
+</TabbedPage>

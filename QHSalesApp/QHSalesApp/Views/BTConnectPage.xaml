@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.BTConnectPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+            <ScrollView>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Device Name: " Grid.Row="0"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                    <Label  x:Name="DeviceNameLabel" Grid.Row="1"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="2" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                    <Label Text="Address : " Grid.Row="3"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                    <Label  x:Name="AddressLabel"  Grid.Row="4"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="5" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                    <Label Text="Unique Identifier : " Grid.Row="6"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                    <Label  x:Name="UniqueIdenLabel"  Grid.Row="7"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                    <Button x:Name="SaveButton" Grid.Row="8" Text="Save Bluetooth Printer" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="20,30,20,20" />
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

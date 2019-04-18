@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp;assembly=QHSalesApp"
+             x:Class="QHSalesApp.ItemDetailPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+              <!--<BoxView BackgroundColor="Black" Grid.ColumnSpan="2" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+              <StackLayout Grid.ColumnSpan="2" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+                <Image Source="previous.png" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                 <Label x:Name="TitleLabel" Grid.Column="1"  FontSize="20" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                 TextColor="White" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                </Grid>
+              </StackLayout>-->
+                <StackLayout Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                    <ScrollView>
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Item No." Grid.Row="0"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            <Label  x:Name="ItemNoLabel" Grid.Row="1"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                            <BoxView BackgroundColor="DarkGray" Grid.Row="2" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                            <Label Text="Description"  Grid.Row="3"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            <Label  x:Name="DescLabel"  Grid.Row="4"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                            <BoxView BackgroundColor="DarkGray" Grid.Row="5" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                            <Label Text="Description 2" Grid.Row="6"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            <Label  x:Name="Desc2Label" Grid.Row="7"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                            <BoxView BackgroundColor="DarkGray" Grid.Row="8" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                            <Label Text="Unit Price"  Grid.Row="9"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            <Label  x:Name="UnitPriceLabel"  Grid.Row="10"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                            <BoxView BackgroundColor="DarkGray" Grid.Row="11" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                            <Label Text="Balance Quantity"  Grid.Row="12"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            <Label  x:Name="BalQtyLabel"  Grid.Row="13"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                            <BoxView BackgroundColor="DarkGray" Grid.Row="14" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+              <!--<BoxView BackgroundColor="Silver" Grid.Column="0" Grid.Row="2"/>
+                <Image Source="detail.png" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" IsEnabled="False">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <BoxView BackgroundColor="#dddddd"  Grid.Column="1" Grid.Row="2">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Image Source="history2.png" Grid.Column="1" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>-->
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

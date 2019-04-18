@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.CustBillToPage" Icon="billto.png" Title="Customer Bill To">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.ColumnSpan="4" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="6*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Label Text="Address" Grid.Column="0" Grid.Row="0"  FontSize="16"   TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                        <Label  x:Name="AddressLabel" Grid.Column="1" Grid.Row="0"  FontAttributes="Bold" FontSize="16" TextColor="Black"   HorizontalOptions="FillAndExpand" IsVisible="True"/>
+                        <Label Text="Address 2"  FontSize="16"  Grid.Column="0" Grid.Row="1" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                        <Label  x:Name="Address2Label"  FontAttributes="Bold" Grid.Column="1" Grid.Row="1" FontSize="16" TextColor="Black"   HorizontalOptions="FillAndExpand" IsVisible="True"/>
+                        <Label Text="City"  FontSize="16"  Grid.Column="0" Grid.Row="2" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                        <Label  x:Name="CityLabel"  FontAttributes="Bold" Grid.Column="1" Grid.Row="2" FontSize="16" TextColor="Black"   HorizontalOptions="FillAndExpand" IsVisible="True"/>
+                        <Label Text="PostCode"  FontSize="16"  Grid.Column="0" Grid.Row="3" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                        <Label  x:Name="PostCodeLabel"  FontAttributes="Bold" Grid.Column="1" Grid.Row="3" FontSize="16" TextColor="Black"   HorizontalOptions="FillAndExpand" IsVisible="True"/>
+                    </Grid>
+                </StackLayout>
+                <!--<BoxView BackgroundColor="Black" Grid.Row="0" Grid.ColumnSpan="5"/>-->
+                <Image Source="info.png" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="finance.png" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="invoice.png" Grid.Column="2" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="payment.png" Grid.Column="3" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

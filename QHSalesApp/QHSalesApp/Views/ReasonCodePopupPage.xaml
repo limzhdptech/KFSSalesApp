@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.ReasonCodePopupPage">
+  <pages:PopupPage.Animation>
+    <animations:ScaleAnimation
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+  </pages:PopupPage.Animation>
+  <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="10, 0, 10, 10">
+    <StackLayout BackgroundColor="White" Padding="0, 20, 0, 0">
+      <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+          <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="50"/>
+              <RowDefinition Height="1*"/>
+              <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <BoxView BackgroundColor="Black" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+            <StackLayout  Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="50"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="previous.png" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center">
+                  <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  NumberOfTapsRequired="1"/>
+                  </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="TitleLabel" Text="Reason Code List" Grid.Column="1"  FontSize="20" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                TextColor="White" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+              </Grid>
+            </StackLayout>
+            <SearchBar x:Name="sbSearch" Grid.Row="1" Placeholder="Search...."  VerticalOptions="StartAndExpand" Margin="10"/>
+            <StackLayout Grid.Row="2" Padding="10" Spacing="10">
+              <ListView x:Name="LookupListView" HasUnevenRows="True" RowHeight="50">
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <ViewCell>
+                      <StackLayout Orientation="Vertical" HorizontalOptions="Fill">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                          <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                              <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="4*" />
+                              <ColumnDefinition Width="6*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Code}" Grid.Column="0" FontSize="16" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center" />
+                            <Label Text="{Binding Description}" Grid.Column="1" FontSize="16" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center"/>
+                          </Grid>
+                        </StackLayout>
+                      </StackLayout>
+                    </ViewCell>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+              </ListView>
+            </StackLayout>
+          </Grid>
+        </StackLayout>
+      </ScrollView>
+    </StackLayout>
+  </StackLayout>
+</pages:PopupPage>

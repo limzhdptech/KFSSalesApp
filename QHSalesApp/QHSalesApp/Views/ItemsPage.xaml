@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.ItemsPage">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converter:ImageConverter x:Key="imgConverter"></converter:ImageConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10" Spacing="10">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+                <SearchBar x:Name="sbSearch" Grid.Row="0" Placeholder="Search...."  VerticalOptions="StartAndExpand" />
+                <StackLayout Grid.Row="1" Padding="10">
+                    <!--<StackLayout IsVisible="{Binding IsLoading}" Padding="12" AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                        <ActivityIndicator x:Name="actInd" IsRunning="{Binding IsLoading}"  IsVisible="{Binding IsLoading}" Color="Red" Opacity="0.5"/>
+                        <Label Text="Loading..." HorizontalOptions="Center" FontAttributes="Bold" TextColor="DarkGray"/>
+                    </StackLayout>-->
+                    <ListView x:Name="LookupListView" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="Fill">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Grid HorizontalOptions="FillAndExpand">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="80" />
+                                                    <ColumnDefinition Width="4*" />
+                                                    <ColumnDefinition Width="6*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="{Binding Str64Img, Converter={StaticResource imgConverter}}" Grid.Column="0" HeightRequest="80"/>
+                                                <Label Text="{Binding ItemNo}" Grid.Column="1" FontSize="16" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center" />
+                                                <Label Text="{Binding Description}" Grid.Column="2" FontSize="16" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:QHSalesApp;assembly=QHSalesApp"
+             x:Class="QHSalesApp.UnloadBagScanPage">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Color x:Key="primary">#3ec3d5</Color>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+        <Grid BackgroundColor="#dddddd" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+          </Grid.ColumnDefinitions>
+          <Label Text="Scan Bag Label" Grid.Row="1" Grid.ColumnSpan="2"  FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+          <StackLayout Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="30,0,30,0">
+            <local:SelectAllEntry  x:Name="BagLabelEntry"  Placeholder="Bag Label"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="True"/>
+          </StackLayout>
+          <Label Text="Item No" Grid.Row="3" Grid.ColumnSpan="2" FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="30,0,0,0"/>
+          <StackLayout Grid.Row="4" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="30,0,30,0">
+            <local:SelectAllEntry  x:Name="ItemNoEntry"  Placeholder="Item No"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="False"/>
+          </StackLayout>
+          <Label Text="From Bin" Grid.Row="5" Grid.Column="0"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="30,0,0,0"/>
+          <StackLayout Grid.Row="6" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="30,0,30,0">
+            <local:SelectAllEntry  x:Name="FromBinEntry"  Placeholder="From Bin"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="False"/>
+          </StackLayout>
+          <Label Text="To Bin" Grid.Row="5" Grid.Column="1"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="30,0,0,0"/>
+          <StackLayout Grid.Row="6" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="30,0,30,0">
+            <local:SelectAllEntry  x:Name="ToBinEntry"  Placeholder="To Bin"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="True"/>
+          </StackLayout>
+          <Label Text="Quantity" Grid.Row="7" Grid.Column="0"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="30,0,0,0"/>
+          <StackLayout Grid.Row="8" Grid.Column="0"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="30,0,30,0">
+            <local:SelectAllEntry  x:Name="QuantityEntry"  Placeholder="Quantity"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="True" Keyboard="Numeric" HorizontalTextAlignment="End"/>
+          </StackLayout>
+          <Button x:Name="ConfirmButton" Grid.Row="10" Grid.ColumnSpan="2" Text="Confirm" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="50" BackgroundColor="#EC2029"  VerticalOptions="Center" Margin="30,0,30,0" BorderColor="#EC2029"/>
+          <Button x:Name="ClearButton" Grid.Row="11" Grid.ColumnSpan="2" Text="Clear" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="50" BackgroundColor="#EC2029"  VerticalOptions="Center" Margin="30,0,30,30" BorderColor="#EC2029"/>
+        </Grid>
+      </StackLayout>
+    </AbsoluteLayout>
+  </ContentPage.Content>
+</ContentPage>

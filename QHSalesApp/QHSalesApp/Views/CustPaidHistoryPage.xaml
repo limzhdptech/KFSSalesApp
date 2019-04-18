@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp;assembly=QHSalesApp"
+             x:Class="QHSalesApp.CustPaidHistoryPage" Icon="history.png" Title="Payment History">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DecimalConverter x:Key="decConverter"></converter:DecimalConverter>
+            <converter:NullboolConverter x:Key="nullConverter"></converter:NullboolConverter>
+            <converter:ColorConverter x:Key="colorConverter"></converter:ColorConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+              <BoxView BackgroundColor="Black" Grid.ColumnSpan="4" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+              <StackLayout Grid.ColumnSpan="4" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+                  <Image Source="previous.png" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                  </Image>
+                  <Label x:Name="TitleLabel" Grid.Column="1"  FontSize="20" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                  TextColor="White" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                </Grid>
+              </StackLayout>
+                <StackLayout Grid.ColumnSpan="4" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,10,10,0">
+                    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <SearchBar x:Name="sbSearch" Grid.Row="0" Placeholder="Search Document No, Date"  VerticalOptions="StartAndExpand" />
+                            <!--<Label  Text="{Binding PaidAmount,StringFormat='Total  : {0:0.00}'}" Grid.Row="7"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>-->
+                            <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <!--<StackLayout IsVisible="{Binding IsLoading}" Padding="12" AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                                    <ActivityIndicator x:Name="actInd" IsRunning="{Binding IsLoading}"  IsVisible="{Binding IsLoading}" Color="Red" Opacity="0.5"/>
+                                    <Label Text="Loading..." HorizontalOptions="Center" FontAttributes="Bold" TextColor="DarkGray"/>
+                                </StackLayout>-->
+                                <ListView x:Name="listview" HasUnevenRows="True">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="20" />
+                                                            <RowDefinition Height="30" />
+                                                            <RowDefinition Height="20" />
+                                                            <RowDefinition Height="30" />
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="5*"/>
+                                                            <ColumnDefinition Width="5*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Text="Document Date" Grid.Row="0" Grid.Column="0"  FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                                                        <Label  Text="{Binding TransDate}" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+
+                                                        <Label Text="Document No." Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+                                                        <Label  Text="{Binding DocNo}" Grid.Row="1" Grid.Column="1" FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="End"  HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+
+                                                        <Label Text="Outstanding Amount" Grid.Row="2" Grid.Column="0" FontSize="14" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                                                        <Label  Text="{Binding InvoiceAmount,StringFormat='{0:0.00}'}" Grid.Row="3" Grid.Column="0"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+
+                                                        <Label Text="Paid Amount" Grid.Row="2"  FontSize="14" Grid.Column="1" TextColor="DarkGray" VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+                                                        <Label  Text="{Binding PaidAmount,StringFormat='{0:0.00}'}" Grid.Row="3" Grid.Column="1" FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+                                                    </Grid>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+                <BoxView BackgroundColor="#dddddd"  Grid.Column="0" Grid.Row="2">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Image Source="info.png" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <BoxView BackgroundColor="#dddddd"  Grid.Column="1" Grid.Row="2">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Image Source="finance.png" Grid.Column="1" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <BoxView BackgroundColor="#dddddd"  Grid.Column="2" Grid.Row="2">
+                    <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"  NumberOfTapsRequired="1"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Image Source="invoice.png" Grid.Column="2" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <BoxView BackgroundColor="Silver" Grid.Column="3" Grid.Row="2"/>
+                <Image Source="history.png" Grid.Column="3" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center"  IsEnabled="False">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

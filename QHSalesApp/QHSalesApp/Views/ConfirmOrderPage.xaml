@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QHSalesApp"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="QHSalesApp.ConfirmOrderPage">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20" >
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="auto" />
+                      <RowDefinition Height="5" />
+                      <RowDefinition Height="auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="120" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="300" />
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label x:Name="DocNoLabel"  Grid.Row="0"  FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="1"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout Orientation="Vertical" Grid.Row="2" >
+                        <Label  Text="Sell To :" FontSize="16" TextColor="Black"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                        <Label x:Name="SellToNameLabel" FontSize="16" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                        <Label x:Name="SellToLine1Label" FontSize="14" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                        <Label x:Name="SellToLine2Label" FontSize="14" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                        <!--<Label x:Name="Line3Label" FontSize="14" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>-->
+                        <!--<Label x:Name="Line4Label" FontSize="14" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>-->
+                    </StackLayout>
+                <BoxView BackgroundColor="DarkGray" Grid.Row="3"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                <StackLayout Orientation="Vertical" Grid.Row="4" >
+                  <Label  Text="Bill To :" FontSize="16" TextColor="Black"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                  <Label x:Name="BillToNameLabel" FontSize="16" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                  <Label x:Name="Line1Label" FontSize="14" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                  <Label x:Name="Line2Label" FontSize="14" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                  <!--<Label x:Name="Line3Label" FontSize="14" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>-->
+                  <!--<Label x:Name="Line4Label" FontSize="14" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>-->
+                </StackLayout>
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="5"  VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    
+              <StackLayout Grid.Row="6"  HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="SubAmountNameLabel" Grid.Column="1" Grid.Row="0" Text="SUBTOTAL : " FontSize="Medium" FontAttributes="Bold"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label x:Name="GSTAmountNameLabel" Grid.Column="1" Grid.Row="1" Text="GST TOTAL" FontSize="Medium"  FontAttributes="Bold"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label x:Name="NetAmountNameLabel" Grid.Column="1" Grid.Row="2" Text="TOTAL" FontSize="Medium"  FontAttributes="Bold"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label x:Name="TotalAmountLabel" Grid.Column="2" Grid.Row="0" Text="0.00" FontSize="Medium" TextColor="Black" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label x:Name="GSTAmountLabel" Grid.Column="2" Grid.Row="1" Text="0.00" FontSize="Medium" TextColor="Black" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label x:Name="NetAmountLabel" Grid.Column="2" Grid.Row="2" Text="0.00" FontSize="Medium" TextColor="Black" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </StackLayout>
+                    <!--<BoxView BackgroundColor="DarkGray" Grid.Row="5" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>-->
+                    <Label  Text="Comment:"  Grid.Row="7"  FontSize="16" TextColor="Gray" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <local:SelectAllEntry  x:Name="CommentEntry" Grid.Row="7"   Placeholder="Enter Comment"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand"/>
+                    <!--<BoxView BackgroundColor="DarkGray" Grid.Row="8" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>-->
+                    <StackLayout Grid.Row="10"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text ="CUSTOMER SIGNATURE" Grid.Row="0" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Margin="10,0,0,0"/>
+                            <forms:SignaturePadView x:Name="CustomerSignaturePad" Grid.Row="1"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                         StrokeColor="#222222" StrokeWidth="3" BackgroundColor="White" CaptionText="Sign Here" />
+                            <Image x:Name="imgSignature" Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Grid.Row="11"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Orientation="Vertical">
+                        <Button x:Name="ConfirmButton" Text="Confirm" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" 
+                        BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,30,10,15" Clicked="ConfirmButton_OnClicked" />
+                        <Button x:Name="PrintButton"  Text="Print" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" 
+                        BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,15,10,30" Clicked="PrintButton_Clicked" />
+                      <Button x:Name="VoidButton"  Text="Void" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60"
+                       BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,15,10,30"/>
+                    </StackLayout>
+                    
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

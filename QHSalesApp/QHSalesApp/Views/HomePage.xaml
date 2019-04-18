@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.HomePage">
+    <ContentPage.Content>
+      <ScrollView>
+        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Padding="5">
+          <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="5*"/>
+              <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" x:Name="RequestStockButton" Text="Request Stock" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="LoadStockButton" Text="Load Stock" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <Button Grid.Row="1" Grid.Column="0" x:Name="SalesOrderButton" Text="Sales Order" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="CreditMemoButton" Text="Credit Memo" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <Button Grid.Row="2" Grid.Column="0" x:Name="UnloadStockButton" Text="Unload Stock" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="SyncDataButton" Text="Sync Data" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <Button Grid.Row="3" Grid.Column="0" x:Name="CustomerButton" Text="Customers" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button Grid.Row="3" Grid.Column="1" x:Name="ItemsButton" Text="Items" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <Button Grid.Row="4" Grid.Column="0" x:Name="BluetoothSettingButton" Text="Bluetooth Setting" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button Grid.Row="4" Grid.Column="1" x:Name="LogoutButton" Text="Logout" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <!--<StackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="0" Padding="0">
+            <Image Source="xapp.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>-->
+          </Grid>
+        </StackLayout>
+      </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

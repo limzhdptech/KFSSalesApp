@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:behaviors="clr-namespace:QHSalesApp;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp;assembly=QHSalesApp"
+             x:Class="QHSalesApp.SalesOrderEntryPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DecimalConverter x:Key="decConverter"></converter:DecimalConverter>
+            <converter:NullboolConverter x:Key="nullConverter"></converter:NullboolConverter>
+            <converter:ColorConverter x:Key="colorConverter"></converter:ColorConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="20">
+                <StackLayout Orientation="Vertical">
+                    <Label x:Name="SellToCustomerLabel"  Text="Sell to Customer :"  FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <StackLayout Orientation="Horizontal"   HorizontalOptions="FillAndExpand" IsVisible="True" >
+                        <local:SelectAllEntry  x:Name="SellToCustomerEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" />
+                        <local:ActionButton x:Name="SelltoCustomerlookUpButton" CommandParameter="SelltoCustomer" HeightRequest="40" WidthRequest="40" HorizontalOptions="End" VerticalOptions="End" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label Text="Sell to Name :"  FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <!--<local:SelectAllEntry  x:Name="SellToNameEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsVisible="True"/>-->
+                    <Label  x:Name="SellToNameLabel"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label  Text="Document No. :"  FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <!--<local:SelectAllEntry  x:Name="InvoiceNoEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsVisible="True"/>-->
+                    <Label  x:Name="InvoiceNoLabel"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label x:Name="DocumentLabel"  Text="Document Date :"  FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                  <Label  x:Name="DocDateTimeLabel"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand"/>
+                    <!--<DatePicker x:Name="DocumentDatePicker" Format="yyyy-MM-dd"  TextColor="Black" HorizontalOptions="FillAndExpand"/>-->
+                </StackLayout>
+              <StackLayout Orientation="Vertical" >
+                <Label  Text="External Document No. :"  FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                <local:SelectAllEntry  x:Name="ExternalDocNoEntry"  Placeholder="Enter External Document No"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsVisible="True">
+                  <local:SelectAllEntry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="35"/>
+                  </local:SelectAllEntry.Behaviors>
+                </local:SelectAllEntry>
+              </StackLayout>
+                <!--<StackLayout Orientation="Vertical">
+                    <Label x:Name="SellToCustomerLabel"  Text="Sell to Customer :"  FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <StackLayout Orientation="Horizontal"   HorizontalOptions="FillAndExpand" IsVisible="True" >
+                        <local:SelectAllEntry  x:Name="SellToCustomerEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="False"/>
+                        <local:ActionButton x:Name="SelltoCustomerlookUpButton" CommandParameter="SelltoCustomer" HeightRequest="40" WidthRequest="40" HorizontalOptions="End" VerticalOptions="End" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label Text="Sell to Name :"  FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    --><!--<local:SelectAllEntry  x:Name="SellToNameEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsVisible="True"/>--><!--
+                    <Label  x:Name="SellToNameLabel"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                </StackLayout>-->
+                <!--<StackLayout Orientation="Vertical" >
+                    <Label x:Name="BillToCustomerLabel"  Text="Bill to Customer :"  FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <local:SelectAllEntry  x:Name="BillToCustomerEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsEnabled="False"/>
+                        <local:ActionButton x:Name="BillToCustomerlookUpButton" CommandParameter="BillToCustomer" HeightRequest="40" WidthRequest="40" HorizontalOptions="End" VerticalOptions="End"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label Text="Bill to Name :"  FontSize="16"  VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    --><!--<local:SelectAllEntry  x:Name="BillToNameEntry"  Placeholder="Enter Value"  FontSize="16" TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsVisible="True"/>--><!--
+                    <Label  x:Name="BillToNameLabel"  FontAttributes="Bold" FontSize="16" TextColor="Black"   VerticalOptions="Center" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" Margin="10,0,0,0"/>
+                </StackLayout>-->
+                <!--<StackLayout Orientation="Vertical">
+                    <Label x:Name="StatusLabel"  Text="Status" FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <local:CustomPicker x:Name="StatusPicker" HorizontalOptions="FillAndExpand"
+                    HeightRequest="40" Image="down" Title="Pick Status">
+                        <local:CustomPicker.Items>
+                            <x:String>Open</x:String>
+                            <x:String>Released</x:String>
+                        </local:CustomPicker.Items>
+                    </local:CustomPicker>
+                </StackLayout>-->
+                <!--<StackLayout Orientation="Vertical" >
+                    <Label x:Name="NoteLabel" Text="Note"  FontSize="16"  FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <local:SelectAllEntry  x:Name="NoteEntry"  Placeholder="Enter Value"  FontSize="16"  TextColor="Black" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" IsVisible="True"/>
+                </StackLayout>-->
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="saveButton" Text="Save" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60" BackgroundColor="#EC2029" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="20,0,20,0"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

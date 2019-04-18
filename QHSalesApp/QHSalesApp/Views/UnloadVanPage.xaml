@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:converter="clr-namespace:QHSalesApp.Converters;assembly=QHSalesApp"
+             xmlns:local="clr-namespace:QHSalesApp"
+             x:Class="QHSalesApp.UnloadVanPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DecimalConverter x:Key="decConverter"></converter:DecimalConverter>
+            <converter:NullboolConverter x:Key="nullConverter"></converter:NullboolConverter>
+            <converter:ColorConverter x:Key="colorConverter"></converter:ColorConverter>
+            <converter:VisibleConverter x:Key="cnvInvert"></converter:VisibleConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <SearchBar x:Name="sbSearch" Placeholder="Search...." Grid.Row="0" VerticalOptions="StartAndExpand" />
+                    <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <ListView x:Name="listview" HasUnevenRows="True" RowHeight="60">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="30"/>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Text="{Binding ItemNo}" Grid.Row="0"  FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                                <Label Text="{Binding Description}" Grid.Row="1"  FontSize="16" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                                <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="40"/>
+                                                            <RowDefinition Height="40"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                          <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Text="{Binding LoadQty,StringFormat='Loaded : {0}'}" Grid.Row="0" Grid.Column="0" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                                        <Label Text="{Binding SoldQty,StringFormat='Sold : {0}'}}" Grid.Row="0" Grid.Column="1" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                                        <!--<Label Text="{Binding ReturnQty,StringFormat='CR : {0}'}" Grid.Row="0" Grid.Column="2" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="Black"/>-->
+                                                      <Button x:Name="ChangeButton" Grid.Row="0" Grid.Column="2" FontSize="16" FontAttributes="Bold" CommandParameter="{Binding ItemNo}" Text="{Binding ReturnQty,StringFormat='CR : {0}'}" BackgroundColor="Gray" HeightRequest="30" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Clicked="ChangeButton_Clicked"/>
+                                                      <StackLayout Grid.Row="1"  Grid.ColumnSpan="3"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+                                                          <Label Text="{Binding BalQty,StringFormat='Bal : {0}'}" FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                                          <Label Text="{Binding UnloadQty,StringFormat='Unloaded : {0}'}"  FontSize="16" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="Black"/>
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <local:ActionButton x:Name="ScanButton"  ButtonIcon="{x:Static local:AwasomeIcon.FABarcode}" ButtonColor="#22C242" OnTouchesEnded="ScanButton_OnTouchesEnded" 
+           AbsoluteLayout.LayoutBounds="1,1,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"
+           HeightRequest="80" WidthRequest="80" HorizontalOptions="Start" VerticalOptions="End" Padding="10" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

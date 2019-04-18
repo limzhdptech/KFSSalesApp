@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.ResetMobilePage">
+  <ContentPage.Content>
+    <ScrollView >
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"   BackgroundColor="#dddddd">
+
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+          </Grid.ColumnDefinitions>
+
+          <Label Text="Reset Master Data" FontSize="14" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,10,0,10"/>
+          <Label x:Name="ResetAllLabel" FontSize="12"  TextColor="Green"  FontAttributes="Bold" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+          <Switch x:Name="ResetAllSwitch"  Grid.Row="0" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+          <BoxView BackgroundColor="DarkGray" Grid.Row="1" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+          <Label Text="Reset Item" FontSize="14" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Margin="20,10,0,10"/>
+          <Label x:Name="ResetItemLabel" TextColor="Green" FontSize="12" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+          <Switch x:Name="ResetItemSwitch"  Grid.Row="2" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+          <BoxView BackgroundColor="DarkGray" Grid.Row="3" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+          <Label Text="Reset Customer" FontSize="14" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Margin="20,10,0,10"/>
+          <Label x:Name="ResetCustomerLabel"  TextColor="Green" FontSize="12" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+          <Switch x:Name="ResetCustomereSwitch"  Grid.Row="4" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+          <Label Text="Reset Trans Data" FontSize="14" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Margin="0,10,0,10"/>
+          <Label x:Name="ResetTransLabel" FontSize="12"  TextColor="Green"  FontAttributes="Bold" Grid.Row="5" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+          <Switch x:Name="ResetTransSwitch"  Grid.Row="5" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+          
+          <BoxView BackgroundColor="DarkGray" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+          <BoxView BackgroundColor="Silver" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+          <Label Text="Reset Request Stock" FontSize="14" FontAttributes="Bold" Grid.Row="7" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,10"/>
+          <Label x:Name="ResetRequestStockLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="7" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+          <Switch x:Name="ResetRequestStockSwitch"  Grid.Row="7" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+          
+          <BoxView BackgroundColor="DarkGray" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+          <BoxView BackgroundColor="Silver" Grid.Row="8" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+          <Label Text="Reset Sales Order" FontSize="14" FontAttributes="Bold" Grid.Row="9" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,10"/>
+          <Label x:Name="ResetSalesOrderLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="9" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+          <Switch x:Name="ResetSalesOrderSwitch"  Grid.Row="9" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+          <BoxView BackgroundColor="DarkGray" Grid.Row="10" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+          <BoxView BackgroundColor="Silver" Grid.Row="10" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+          <Label Text="Reset Credit Memo" FontSize="14" FontAttributes="Bold" Grid.Row="11" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,10"/>
+          <Label x:Name="ResetCreditMemotLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="11" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+          <Switch x:Name="ResetCreditMemoSwitch"  Grid.Row="11" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+          
+          <Button x:Name="ResetButton" Text="Reset Data"   Grid.Row="12" Grid.ColumnSpan="3"
+          TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60"  BackgroundColor="#C5141B" HorizontalOptions="FillAndExpand" Margin="30,20,30,0"/>
+        </Grid>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

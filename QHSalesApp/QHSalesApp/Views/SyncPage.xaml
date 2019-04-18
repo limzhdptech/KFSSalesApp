@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QHSalesApp.SyncPage">
+    <ContentPage.Content>
+        <ScrollView >
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"   BackgroundColor="#dddddd">
+            
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                          <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Sync Master Data" FontSize="14" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,10,0,10"/>
+                        <Label x:Name="syncAllLabel" FontSize="12"  TextColor="Green"  FontAttributes="Bold" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncAllSwitch"  Grid.Row="0" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="1" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Sync Item" FontSize="14" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Margin="20,10,0,10"/>
+                        <Label x:Name="syncItemLabel" TextColor="Green" FontSize="12" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncItemSwitch"  Grid.Row="2" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="3" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <!--<Label Text="Sync Item Unit of Measurement" FontSize="14" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label x:Name="syncUomLabel" FontSize="12" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" IsVisible="False"/>
+                    <Switch x:Name="SyncUomSwitch"  Grid.Row="2" Grid.Column="2" VerticalOptions="Center"></Switch>
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>-->
+                        <Label Text="Sync Item Sales Price" FontSize="14" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Margin="20,10,0,10"/>
+                        <Label x:Name="syncPriceLabel"  TextColor="Green"  FontSize="12" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncPriceSwitch"  Grid.Row="4" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="5" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Sync Customer" FontSize="14" FontAttributes="Bold" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Margin="20,10,0,10"/>
+                        <Label x:Name="syncCustomerLabel"  TextColor="Green" FontSize="12" FontAttributes="Bold" Grid.Row="6" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncCustomereSwitch"  Grid.Row="6" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+                        <!--<BoxView BackgroundColor="DarkGray" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Sync Vendor" FontSize="14" FontAttributes="Bold" Grid.Row="8" Grid.Column="0" VerticalOptions="Center" Margin="20,0,0,0"/>
+                        <Label x:Name="syncVendorLabel"  TextColor="Green" FontSize="12" FontAttributes="Bold" Grid.Row="8" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End"/>
+                        <Switch x:Name="SyncVendorSwitch"  Grid.Row="8" Grid.Column="2" VerticalOptions="Center"></Switch>
+                    
+                    <BoxView BackgroundColor="DarkGray" Grid.Row="9" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="Sync Customer Price History" FontSize="14" FontAttributes="Bold" Grid.Row="10" Grid.Column="0" VerticalOptions="Center" Margin="20,0,0,0"/>
+                        <Label x:Name="syncCustPriceHisLabel"  TextColor="Green" FontSize="12" FontAttributes="Bold" Grid.Row="10" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End"/>
+                        <Switch x:Name="SyncCustPriceHisSwitch"  Grid.Row="10" Grid.Column="2" VerticalOptions="Center"></Switch>-->
+
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="Sync Payment Methods" FontSize="14" FontAttributes="Bold" Grid.Row="8" Grid.Column="0" VerticalOptions="Center" Margin="20,10,0,10"/>
+                        <Label x:Name="syncPaymentMethodsLabel" FontSize="12"  TextColor="Green"  FontAttributes="Bold" Grid.Row="8" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncPaymentMethodsSwitch"   Grid.Row="8" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+                        
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="9" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <BoxView BackgroundColor="Silver" Grid.Row="9" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+                        <Label Text="Sync Request Order" FontSize="14" FontAttributes="Bold" Grid.Row="10" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,10"/>
+                        <Label x:Name="syncRequestOrderLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="10" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncRequestOrderSwitch"  Grid.Row="10" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+                  
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="11" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <BoxView BackgroundColor="Silver" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+                        <Label Text="Sync Sales Order" FontSize="14" FontAttributes="Bold" Grid.Row="12" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,10"/>
+                        <Label x:Name="syncSalesOrderLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="12" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncSalesOrderSwitch"  Grid.Row="12" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+                        <!--<BoxView BackgroundColor="DarkGray" Grid.Row="15" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <BoxView BackgroundColor="Silver" Grid.Row="15" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+                        <Label Text="Sync Payment" FontSize="14" FontAttributes="Bold" Grid.Row="16" Grid.Column="0" VerticalOptions="Center" Margin="10,0,0,0"/>
+                        <Label x:Name="syncPaymentLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="16" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End"/>
+                        <Switch x:Name="SyncPaymentSwitch"  Grid.Row="16" Grid.Column="2" VerticalOptions="Center"></Switch>-->
+
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="13" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <BoxView BackgroundColor="Silver" Grid.Row="13" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+                        <Label Text="Sync Credit Memo" FontSize="14" FontAttributes="Bold" Grid.Row="14" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,10"/>
+                        <Label x:Name="syncCreditMemotLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="14" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncCreditMemoSwitch"  Grid.Row="14" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+                  
+                        <BoxView BackgroundColor="DarkGray" Grid.Row="15" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        <BoxView BackgroundColor="Silver" Grid.Row="15" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"/>
+                        <Label Text="Sync Unload Stock" FontSize="14" FontAttributes="Bold" Grid.Row="16" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,10"/>
+                        <Label x:Name="syncUnloadStockLabel" FontSize="12"  TextColor="Red"  FontAttributes="Bold" Grid.Row="16" Grid.Column="1" VerticalOptions="Center" IsVisible="False" HorizontalOptions="End" Margin="0,10,0,10"/>
+                        <Switch x:Name="SyncUnloadStockSwitch"  Grid.Row="16" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,10"></Switch>
+
+                        <!--<BoxView BackgroundColor="DarkGray" Grid.Row="15" Grid.RowSpan="3" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="1" HorizontalOptions="FillAndExpand"/>-->
+                        <!--<Label x:Name="timeLabel" FontSize="16" FontAttributes="Bold" TextColor="Red" Grid.Row="12" Grid.ColumnSpan="2" VerticalOptions="Center"/>-->
+                        <Button x:Name="SyncButton" Text="Sync Data"   Grid.Row="17" Grid.ColumnSpan="3"
+                 TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="60"  BackgroundColor="#C5141B" HorizontalOptions="FillAndExpand" Margin="30,20,30,0"/>
+                    </Grid>
+            
+            <!--<StackLayout IsVisible="{Binding IsLoading}" Padding="12" AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <ActivityIndicator x:Name="actInd" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" Color="Red" Opacity="0.5"/>
+                <Label Text="Loading..." HorizontalOptions="Center" FontAttributes="Bold" TextColor="DarkGray"/>
+            </StackLayout>-->  
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
