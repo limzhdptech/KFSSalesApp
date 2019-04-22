@@ -14,8 +14,12 @@ namespace QHSalesApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomerInfoPage : ContentPage
     {
-        
+
         private List<Customer> custList { get; set; }
+        private List<Customer> filteredCustList { get; set; }
+        private enum FilterStates { FILTERED, UNFILTERED }
+        private FilterStates currentState;
+
         private bool _isloading;
 
         public bool IsLoading
@@ -44,9 +48,27 @@ namespace QHSalesApp
             BindingContext = this;
             EmptyDataLayout.IsVisible = false;
         }
-
+        private void ChangeFilter()
+        {
+            this.ToolbarItems.Clear();
+            switch (currentState)
+            {
+                case FilterStates.FILTERED:
+                    this.ToolbarItems.Add(new ToolbarItem { Text = "DEFAULT", Command = new Command(this.ChangeFilter) });
+                    currentState = FilterStates.UNFILTERED;
+                    listview.ItemsSource = custList;
+                    break;
+                case FilterStates.UNFILTERED:
+                    this.ToolbarItems.Add(new ToolbarItem { Text = "ALL", Command = new Command(this.ChangeFilter) });
+                    currentState = FilterStates.FILTERED;
+                    listview.ItemsSource = filteredCustList;
+                    break;
+            }
+        }
         protected override void OnAppearing()
         {
+            this.ToolbarItems.Clear();
+            this.ToolbarItems.Add(new ToolbarItem { Text = "ALL", Command = new Command(this.ChangeFilter) });
             base.OnAppearing();
             UserDialogs.Instance.ShowLoading("Loading", MaskType.Black); //IsLoading = true;
             Task.Run(async () =>
@@ -56,18 +78,21 @@ namespace QHSalesApp
                     custList = new List<Customer>();
                     DataManager manager = new DataManager();
                     custList = await manager.GetSQLite_Customers();
+                    custList = custList.OrderBy(x => x.Name).ToList();
+                    filteredCustList = custList.Where(x => x.SalesPersonCode.ToLower().Contains(App.gSalesPersonCode.ToLower())).ToList();
+
                     //if (App.gCustomers == null)
                     //    App.gCustomers = await manager.GetSQLite_Customers();
                     //custList = App.gCustomers;
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        if (custList != null)
+                        if (filteredCustList != null)
                         {
-                            if (custList.Count > 0)
+                            if (filteredCustList.Count > 0)
                             {
                                 DataLayout.IsVisible = true;
                                 EmptyLayout.IsVisible = false;
-                                listview.ItemsSource = custList.OrderBy(x => x.Name);
+                                listview.ItemsSource = filteredCustList;
                             }
                         }
                         else
@@ -111,20 +136,37 @@ namespace QHSalesApp
         private void SearchItemsFilter(string filter)
         {
             List<Customer> filterItems = new List<Customer>();
-            if (custList != null)
+            switch (currentState)
             {
-                if (string.IsNullOrWhiteSpace(filter))
-                {
-                    listview.ItemsSource = custList.OrderBy(x => x.Name);
-
-                }
-                else
-                {
-                    filterItems = custList.Where(x => x.CustomerNo.ToLower().Contains(filter.ToLower()) || x.Name.ToLower().Contains(filter.ToLower())).ToList();
-                    listview.ItemsSource = filterItems.OrderBy(x => x.Name);
-                }
+                case FilterStates.FILTERED:
+                    if (filteredCustList != null)
+                    {
+                        if (string.IsNullOrWhiteSpace(filter))
+                        {
+                            listview.ItemsSource = filteredCustList;
+                        }
+                        else
+                        {
+                            filterItems = filteredCustList.Where(x => x.CustomerNo.ToLower().Contains(filter.ToLower()) || x.Name.ToLower().Contains(filter.ToLower())).ToList();
+                            listview.ItemsSource = filterItems;
+                        }
+                    }
+                    break;
+                case FilterStates.UNFILTERED:
+                    if (custList != null)
+                    {
+                        if (string.IsNullOrWhiteSpace(filter))
+                        {
+                            listview.ItemsSource = custList;
+                        }
+                        else
+                        {
+                            filterItems = custList.Where(x => x.CustomerNo.ToLower().Contains(filter.ToLower()) || x.Name.ToLower().Contains(filter.ToLower())).ToList();
+                            listview.ItemsSource = filterItems;
+                        }
+                    }
+                    break;
             }
-
         }
 
         private void Listview_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -135,8 +177,8 @@ namespace QHSalesApp
             App.gCustomer = new Customer();
             App.gCustomer = item;
 
-           // if(App.gfromMenu=="Customers")
-                Navigation.PushAsync(new CustDetailPage());
+            // if(App.gfromMenu=="Customers")
+            Navigation.PushAsync(new CustDetailPage());
         }
     }
 }
