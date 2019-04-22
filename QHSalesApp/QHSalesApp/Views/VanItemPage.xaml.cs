@@ -24,8 +24,8 @@ namespace QHSalesApp
             sbSearch.Placeholder = "Search by Item No or Description";
             sbSearch.TextChanged += (sender2, e2) => SearchItemsFilter(sbSearch.Text);
             sbSearch.SearchButtonPressed += (sender2, e2) => SearchItemsFilter(sbSearch.Text);
-            this.ToolbarItems.Add(new ToolbarItem { Text = "Default", Command = new Command(this.ChangeFilter) });
-            curfilter = "ALL";
+            this.ToolbarItems.Add(new ToolbarItem { Text = "ALL", Command = new Command(this.ChangeFilter) });
+            curfilter = "Default";
             BindingContext = this;
         }
 
